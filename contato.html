@@ -31,6 +31,18 @@
             <label for="mensagem">Mensagem:</label>
             <textarea id="mensagem" name="mensagem" required></textarea>
             <button type="submit">Enviar</button>
+            <script>
+                document.getElementById('form-contato').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const nome = document.getElementById('nome').value;
+                    const email = document.getElementById('email').value;
+                    const mensagem = document.getElementById('mensagem').value;
+                    const destinatario = 'esseemailnaoexiste@mercadobomviver.com.br';
+                    const assunto = encodeURIComponent('Contato pelo site - Mercado Bom Viver - ' + nome);
+                    const corpo = encodeURIComponent(`Nome: ${nome}\nEmail: ${email}\nMensagem: ${mensagem}`);
+                    window.location.href = `mailto:${destinatario}?subject=${assunto}&body=${corpo}`;
+                });
+            </script>
         </form>
         <div class="redes-sociais">
             <h2>Redes Sociais</h2>
